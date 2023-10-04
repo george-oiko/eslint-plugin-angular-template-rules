@@ -12,18 +12,7 @@ export const rule = ESLintUtils.RuleCreator((ruleName) => ruleName)({
             description: ``,
             recommended: 'error',
         },
-        schema: [{
-            type: 'object',
-            additionalProperties: false,
-            properties: {
-                selectors: {
-                    type: 'array',
-                    items: {
-                        type: 'string',
-                    }
-                }
-            },
-        }],
+        schema: [],
         messages: {
             default: 'Do not use ng-container'
         },
@@ -33,7 +22,7 @@ export const rule = ESLintUtils.RuleCreator((ruleName) => ruleName)({
     }],
     create(context) {
         return {
-            [`Content[name=ng-container]`](node: any) {
+            [`Element$1[name=ng-container]`](node: any) {
                 const parserServices = getTemplateParserServices(context as any);
                 const loc = parserServices.convertNodeSourceSpanToLoc(node.sourceSpan);
                 context.report({

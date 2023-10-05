@@ -2,14 +2,11 @@
   "name": "eslint-plugin-angular-templates",
   "version": "1.0.6",
   "description": "Eslint rules for Angular templates",
-  "main": "./dist/index.js",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/george-oiko/eslint-plugin-angular-templates.git"
   },
-  "files": [
-    "dist/**"
-  ],
   "scripts": {
     "test": "test",
     "build": "tsup src/index.ts --no-splitting --minify",

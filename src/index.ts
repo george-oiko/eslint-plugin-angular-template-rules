@@ -1,9 +1,7 @@
-import { rule } from './rules/no-ng-container';
-import { noImport } from './rules/no-import';
+import { noNgContainer } from './rules/no-ng-container';
 
 module.exports = {
     rules: {
-        'no-ng-container': rule,
-        'no-imports': noImport
+        'no-ng-container': noNgContainer,
     },
 };

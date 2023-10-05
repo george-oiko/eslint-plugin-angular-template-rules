@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-angular-templates",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Eslint rules for Angular templates",
   "main": "index.js",
   "repository": {

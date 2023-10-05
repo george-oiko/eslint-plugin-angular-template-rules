@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-angular-templates",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Eslint rules for Angular templates",
   "main": "index.js",
   "repository": {
@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "test",
-    "build": "tsup src/index.ts --no-splitting --minify",
+    "build": "tsup src/index.js --no-splitting --minify",
     "buildx2": "tsc && xcopy src\\index.js dist\\ && xcopy package.json dist\\"
   },
   "dependencies": {

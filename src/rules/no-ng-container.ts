@@ -1,5 +1,4 @@
 import { ESLintUtils } from '@typescript-eslint/utils';
-import { getTemplateParserServices } from '@angular-eslint/utils';
 
 
 export const RULE_NAME = 'no-ng-container';
@@ -7,9 +6,9 @@ export const RULE_NAME = 'no-ng-container';
 export const rule = ESLintUtils.RuleCreator((ruleName) => ruleName)({
     name: RULE_NAME,
     meta: {
-        type: 'problem',
+        type: 'suggestion',
         docs: {
-            description: ``,
+            description: `Try to use the new template syntax`,
             recommended: 'error',
         },
         schema: [],
@@ -23,10 +22,8 @@ export const rule = ESLintUtils.RuleCreator((ruleName) => ruleName)({
     create(context) {
         return {
             [`Element$1[name=ng-container]`](node: any) {
-                const parserServices = getTemplateParserServices(context as any);
-                const loc = parserServices.convertNodeSourceSpanToLoc(node.sourceSpan);
                 context.report({
-                    loc,
+                    node,
                     messageId: 'default',
                     data: {
                         element: node.name,

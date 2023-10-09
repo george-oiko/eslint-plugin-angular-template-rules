@@ -1,6 +1,5 @@
 import { ESLintUtils } from '@typescript-eslint/utils';
 
-
 export const RULE_NAME = 'no-ng-container';
 
 export const noNgContainer = ESLintUtils.RuleCreator((ruleName) => ruleName)({
@@ -8,17 +7,15 @@ export const noNgContainer = ESLintUtils.RuleCreator((ruleName) => ruleName)({
     meta: {
         type: 'suggestion',
         docs: {
-            description: `Try to use the new template syntax`,
-            recommended: 'error',
+            description: `Since Angular v17 the new control flow is available`,
+            recommended: 'warn',
         },
         schema: [],
         messages: {
-            default: 'Do not use ng-container'
+            default: 'Try to use the new control flow. e.g @if (condition) {   } '
         },
     },
-    defaultOptions: [{
-        selectors: [],
-    }],
+    defaultOptions: [],
     create(context) {
         return {
             [`Element$1[name=ng-container]`](node: any) {

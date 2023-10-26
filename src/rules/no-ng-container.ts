@@ -19,14 +19,18 @@ export const noNgContainer = ESLintUtils.RuleCreator((ruleName) => ruleName)({
     defaultOptions: [],
     create(context) {
         return {
-            [`Element$1[name=ng-container]`](node: any) {
-                context.report({
-                    node,
-                    messageId: 'default',
-                    data: {
-                        element: node.name,
-                    }
-                })
+            [`Template[tagName=ng-container]`](node: any) {
+               if(node['templateAttrs'].some((a: any) => a.name === 'ngIf')) {
+                   context.report({
+                       node,
+                       messageId: 'default',
+                       data: {
+                           element: node.name,
+                       }
+                   })
+               } else {
+                return;
+               }
             }
         };
     },
